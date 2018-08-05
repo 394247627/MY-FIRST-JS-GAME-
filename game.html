@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>try a game</title>
+</head>
+<script>
+    function StringBuffer() {   //定义sb
+        this.__strings__ = new Array;
+    }
+    StringBuffer.prototype.append = function (str) {
+        this.__strings__.push(str);
+    };
+    StringBuffer.prototype.toString = function () {
+        return this.__strings__.join("");
+    };
+
+</script>
+<script>
+    var arr = ["#fe0019","#00fe24","#002DFE","#002DFE","#00fe24","#fe0019","#FE19FD"
+        , "#FE19FD","#FEF600","#FEF600","#FDFCFE","#FDFCFE","#00F1FE","#00F1FE","#FE8200","#FE8200"]    //定义方块颜色
+
+    var colorname = {"#fe0019":"red","#00fe24":"green","#002DFE":"blue","#FE19FD":"pink","#FEF600":"yellow","FDFCFE":"white","#FE8200":"orange","#00F1FE":"浅蓝色"}
+    function start() {  //开始
+        arr.sort(randomsort)    //打乱数组
+        document.getElementById("M").innerHTML="点击draw后，有5秒记忆时间，5秒后点击相同颜色"
+        document.getElementById("D").innerHTML="<button onclick=\"drawTable(200, 4);time()\">draw</button>"
+        document.getElementById("F").innerHTML=""
+
+
+    }
+
+    function randomsort(a, b) { //打乱数组
+        return Math.random()>.5 ? -1 : 1;
+        //用Math.random()函数生成0~1之间的随机数与0.5比较，返回-1或1
+    }
+
+    function drawTable(edge,n,type) {   //生产颜色方块
+
+        var size = edge / n
+        var sb = new StringBuffer()
+        sb.append("<table border='1' height='" + edge + "' width='" + edge + "' bgcolor='red'>")
+        for (var i = 0; i < n; i++) {
+            sb.append("<tr>")
+            for (var j = 0; j < n; j++) {
+                var p = i + '' + j
+                sb.append("<td width='" + size + "' height='" + size + "' ")
+                if(type =="black"){
+                    sb.append(" bgcolor=black ")
+                    sb.append(" id='"+[(i*4)+j]+"' onclick='changecolor(this)'>")
+                }else{
+                    sb.append(" bgcolor='"+arr[(i*4)+j]+"' >")
+                }
+                sb.append("</td>")
+            }
+            sb.append("</tr>")
+        }
+        sb.append("</table>")
+        document.getElementById("D").innerHTML = sb.toString()
+    }
+
+    function time() {   //倒计时模块
+        var num=5;                                                                                               //初始化计数器
+        document.getElementById("M").innerHTML="还剩<font color=red>"+num+"</font>秒";            //在页面中显示10秒
+        var tim=setInterval(function (){                                                      //定义匿名函数，
+            num--;                                                                                       //函数每调用一次num减一
+            document.getElementById("M").innerHTML="还剩<font color=red>"+num+"</font>秒";       //在页面中显示减一后的秒数
+            if(num==0){
+                //当num变为1的时候，通过 clearInterval()结束倒计时
+                document.getElementById("M").innerHTML="请开始你的表演";
+                drawTable(200,4,"black")
+                clearInterval(tim);
+            }
+        },1000);                                                                                         //每隔一秒执行一次该匿名函数
+    }
+
+    let precolor = null;
+    function changecolor(a) {
+        var acolor=a.getAttribute("id")
+        if(precolor == null) {
+            precolor = arr[acolor]
+        }else{
+            precolor === arr[acolor]? yes():no(precolor,acolor)
+            precolor = null
+        }
+        a.setAttribute("bgcolor",arr[acolor])
+
+    }
+    function yes(){ //判断正确
+        precolor = null
+        document.getElementById("F").innerHTML="True"
+    }
+    function no(precolor,acolor) { //判断错误
+        drawTable(200,4,"color")
+        document.getElementById("F").innerHTML="Wrong!正确选项为="+colorname[precolor]+" 你选择了="+colorname[arr[acolor]]+"<br>请再接再厉！"
+        document.getElementById("M").innerHTML="<button onclick=\"start()\">start</button>\n"
+
+    }
+</script>
+<body>
+<p id="M">
+    <button onclick="start()">start</button>
+</p>
+<p id="D">
+</p>
+<p id="F">
+</p>
+</body>
+</html>
