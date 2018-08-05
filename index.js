@@ -40,7 +40,7 @@ function drawTable(edge,n,type) {   //生产颜色方块
 
     var size = edge / n
     var sb = new StringBuffer()
-    sb.append("<table border='1' height='" + edge + "' width='" + edge + "' bgcolor='red'>")
+    sb.append("<center><table  border='1' height='" + edge + "' width='" + edge + "' bgcolor='red'>")
     for (var i = 0; i < n; i++) {
         sb.append("<tr>")
         for (var j = 0; j < n; j++) {
@@ -56,7 +56,7 @@ function drawTable(edge,n,type) {   //生产颜色方块
         }
         sb.append("</tr>")
     }
-    sb.append("</table>")
+    sb.append("</table></center>")
     document.getElementById("D").innerHTML = sb.toString()
 }
 
