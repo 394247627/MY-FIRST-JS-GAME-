@@ -114,7 +114,7 @@ function yes(){ //判断正确
     total_point ++
     if(point == 8){
         document.getElementById("M").innerHTML="<button class='breathe-btn' onclick=\"start()\">再来一局</button>\n"
-        document.getElementById("D").innerHTML="帅锶祝这个逼生日快乐<br><img width=20% height=20% id='pic' src='1.jpg' onclick='chpic(this)'><br>（点击图片查看p前照）"
+        document.getElementById("D").innerHTML="帅锶祝这个逼生日快乐<br><img id='pic' src='1.jpg' onclick='chpic(this)'><br>（点击图片查看p前照）"
         document.getElementById("countdown").innerHTML=""
         point = 0
     }
