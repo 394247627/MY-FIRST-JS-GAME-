@@ -2,7 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,height=device-height,inital-scale=1.0,maximum-scale=1.0,user-scalable=yes">
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge,chrome=1" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="YES" />
+    <script type="text/javascript">
+        var w =  screen.width;
+        var rate = "0.55";
+        switch(w){
+            case 320:
+            case 640:
+                rate = "0.5";
+                break;
+            case 365:
+            case 720:
+            case 375:
+            case 750:
+                rate = "0.585";
+                break;
+            case 414:
+            case 1242:
+            case 1080:
+                rate = "0.64";
+                break;
+            default:
+                rate = "0.55";
+                break;
+        }
+        document.write("<meta name='viewport' content='width=device-width,initial-scale="+rate+", minimum-scale=0.2, maximum-scale=1, user-scalable=no'>");
+    </script>
+    <meta charset="UTF-8">
     <title>try a game</title>
     <link rel="stylesheet" href="index.css" type="text/css" />
 </head>
@@ -18,11 +46,11 @@
     <button class="breathe-btn" onclick="start()">start</button>
 </p>
 <p id="D">
-</p>    <p  id="countdown" class="game_time">
-
 </p>
 <p id="F">
 </p>
+    <p  id="countdown" class="game_time">
+    </p>
     <p id="MAX">
     </p>
 
