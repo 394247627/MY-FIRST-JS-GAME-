@@ -8,27 +8,6 @@ StringBuffer.prototype.toString = function () {
     return this.__strings__.join("");
 };
 
-
-var width=document.documentElement.clientWidth;//获取屏幕的宽度
-
-var height=document.documentElement.clientHeight;//获取屏幕的高度
-
-var bili1=width/750;//屏幕宽度与设计稿宽度的比例（750是设计稿的宽度）
-
-var bili2=height/(1336-48);//屏幕高度与设计稿高度的比例(1336是设计稿的高度，其中48是设计稿中含有手机顶部的状态栏，需要去掉，1366-48才是真正需要显示的东西)
-
-var bili=bili1<bili2?bili1:bili2;//宽度的比例和高度的比例进行比较，取值最小的
-
-var html = document.querySelector('html');//选择html节点
-
-var rem = 16;//手动设置rem与px的比例；
-
-html.style.fontSize = rem + "px";//设置html的默认fontsize为16px。(注意，浏览器中最小值为12px，)
-
-var __bili=bili/rem;//将比例和rem进行联系。
-
-document.documentElement.style.setProperty('--bili', __bili+"rem");//设置css中的变量为--bili，值为__bili
-
 const arr = ["#fe0019", "#00fe24", "#002DFE", "#002DFE", "#00fe24", "#fe0019", "#FE19FD"
     , "#FE19FD", "#FEF600", "#FEF600", "#FDFCFE", "#FDFCFE", "#00F1FE", "#00F1FE", "#FE8200", "#FE8200"];    //定义方块颜色
 
@@ -100,7 +79,7 @@ function time(second) {   //倒计时模块
                 "        <div class=\"pie pie2\"></div>\n" +
                 "    </div>\n" +
                 "    <div class=\"bg\"> </div>\n" +
-                "    <div class=\"time\"></div>" */
+                "    <div class=\"time\"></div>" */ //未完成的计时功能
             //当num变为1的时候，通过 clearInterval()结束倒计时
             document.getElementById("M").innerHTML = "请开始你的表演";
             drawTable(200, 4, "black")
