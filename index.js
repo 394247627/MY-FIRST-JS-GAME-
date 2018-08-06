@@ -74,7 +74,8 @@ function time() {   //倒计时模块
         }
     }, 1000);                                                                                         //每隔一秒执行一次该匿名函数
 }
-
+let point = 0
+let total_point = 0
 let precolor = null;
 function changecolor(a) {
     const acolor = a.getAttribute("id");
@@ -89,11 +90,19 @@ function changecolor(a) {
 }
 function yes(){ //判断正确
     precolor = null
-    document.getElementById("F").innerHTML="True"
+    point ++
+    total_point ++
+    if(point == 8){
+        document.getElementById("M").innerHTML="<button onclick=\"start()\">再来一局</button>\n"
+        document.getElementById("D").innerHTML="恭喜你全部答对!"
+        point = 0
+    }
+    document.getElementById("F").innerHTML="得分："+total_point
 }
 function no(precolor,acolor) { //判断错误
     drawTable(200,4,"color")
-    document.getElementById("F").innerHTML="Wrong!正确选项为="+colorname[precolor]+" 你选择了="+colorname[arr[acolor]]+"<br>请再接再厉！"
-    document.getElementById("M").innerHTML="<button onclick=\"start()\">start</button>\n"
-
+    document.getElementById("F").innerHTML="Wrong!正确选项为="+colorname[precolor]+" 你选择了="+colorname[arr[acolor]]+"<br>请再接再厉！<br>总分为："+total_point
+    document.getElementById("M").innerHTML="<button onclick=\"start()\">再来一局</button>\n"
+    total_point = 0
+    point = 0
 }
