@@ -29,3 +29,14 @@ body{ background:#333;}
     0% { opacity: .2; box-shadow:0 1px 2px rgba(255,255,255,0.1);}
     100% { opacity: 1; border:1px solid rgba(59,235,235,1); box-shadow:0 1px 30px rgba(59,255,255,1);}
 }
+
+/*countdown*/
+.game_time{width:50px;height:50px;position:absolute;top:26%;left:58%;text-align:center;}
+
+/* time scroll*/
+.pie{width:50px;height:50px;background-color:blue;border-radius:25px;position:absolute;}
+.pie1{clip:rect(0px,50px,50px,25px);-o-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);background-color:#fff;}
+.pie2{clip:rect(0px,25px,50px,0px);-o-transform:rotate(0deg);-moz-transform:rotate(0deg);-webkit-transform:rotate(0deg);background-color:#fff;}
+.hold{width:50px;height:50px;position:absolute;z-index:1;}
+.bg{width:50px;height:50px;border-radius:50px;position:absolute;background-color: #21a1d0;}
+.time{width:40px;height:40px;margin:5px 0 0 5px;background-color: #3bebeb;border-radius:40px;position:absolute;z-index:1;text-align:center;line-height:40px;font-size:7px;}
