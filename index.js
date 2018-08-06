@@ -17,7 +17,7 @@ const colorname = {
     "#002DFE": "blue",
     "#FE19FD": "pink",
     "#FEF600": "yellow",
-    "FDFCFE": "white",
+    "#FDFCFE": "white",
     "#FE8200": "orange",
     "#00F1FE": "浅蓝色"
 };
@@ -25,7 +25,7 @@ const colorname = {
 function start() {  //开始
     arr.sort(randomsort)    //打乱数组
     document.getElementById("M").innerHTML="点击draw后，有5秒记忆时间，5秒后点击相同颜色"
-    document.getElementById("D").innerHTML="<button onclick=\"drawTable(200, 4);time()\">draw</button>"
+    document.getElementById("D").innerHTML="<button class='breathe-btn' onclick=\"drawTable(200, 4);time()\">draw</button>"
     document.getElementById("F").innerHTML=""
 
 
@@ -102,7 +102,7 @@ function yes(){ //判断正确
 function no(precolor,acolor) { //判断错误
     drawTable(200,4,"color")
     document.getElementById("F").innerHTML="Wrong!正确选项为="+colorname[precolor]+" 你选择了="+colorname[arr[acolor]]+"<br>请再接再厉！<br>总分为："+total_point
-    document.getElementById("M").innerHTML="<button onclick=\"start()\">再来一局</button>\n"
+    document.getElementById("M").innerHTML="<button class='breathe-btn' onclick=\"start()\">再来一局</button>\n"
     total_point = 0
     point = 0
 }
