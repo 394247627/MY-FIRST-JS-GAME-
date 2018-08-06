@@ -101,6 +101,19 @@ function yes(){ //判断正确
 }
 function no(precolor,acolor) { //判断错误
     drawTable(200,4,"color")
+    if (typeof(Storage) !== "undefined") {
+        if(localStorage.getItem("maxpoint") !== "undefined"){
+            if(localStorage.getItem("maxpoint") <= total_point){
+                localStorage.setItem("maxpoint",total_point)
+                document.getElementById("MAX").innerHTML="您的历史最高分为:"+localStorage.getItem("maxpoint")+"分！"
+            }
+        }else{
+            localStorage.setItem("maxpoint",total_point)
+        }
+    }else {
+        document.getElementById("MAX").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+    }
+
     document.getElementById("F").innerHTML="Wrong!正确选项为="+colorname[precolor]+" 你选择了="+colorname[arr[acolor]]+"<br>请再接再厉！<br>总分为："+total_point
     document.getElementById("M").innerHTML="<button class='breathe-btn' onclick=\"start()\">再来一局</button>\n"
     total_point = 0
