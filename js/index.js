@@ -27,7 +27,7 @@ function start() {  //开始
     document.getElementById("M").innerHTML="点击draw后，有5秒记忆时间，5秒后点击相同颜色"
     document.getElementById("D").innerHTML="<button class='breathe-btn' onclick=\"drawTable(200, 4);time(5)\">draw</button>"
     document.getElementById("F").innerHTML=""
-    if(localStorage.getItem("maxpoint") !== "undefined") {
+    if(localStorage.getItem("maxpoint") !== null) {
         document.getElementById("MAX").innerHTML = "您的历史最高分为:" + localStorage.getItem("maxpoint") + "分！"
     }else{
         document.getElementById("MAX").innerHTML = "您的历史最高分为:0分！"
@@ -116,7 +116,7 @@ function yes(){ //判断正确
 function no(precolor,acolor) { //判断错误
     drawTable(200,4,"color")
     if (typeof(Storage) !== "undefined") {
-        if(localStorage.getItem("maxpoint") !== "undefined"){
+        if(localStorage.getItem("maxpoint") !== null){
             if(localStorage.getItem("maxpoint") <= total_point){
                 localStorage.setItem("maxpoint",total_point)
                 document.getElementById("MAX").innerHTML="您的历史最高分为:"+localStorage.getItem("maxpoint")+"分！"
