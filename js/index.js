@@ -101,13 +101,20 @@ function changecolor(a) {
     a.setAttribute("bgcolor",arr[acolor])
 
 }
+function chpic(a) {
+    if(a.getAttribute("src") == '1.jpg'){
+        a.setAttribute("src",'2.jpg')
+    }else{
+        a.setAttribute('src','1.jpg')
+    }
+}
 function yes(){ //判断正确
     precolor = null
     point ++
     total_point ++
     if(point == 8){
         document.getElementById("M").innerHTML="<button class='breathe-btn' onclick=\"start()\">再来一局</button>\n"
-        document.getElementById("D").innerHTML="恭喜你全部答对!"
+        document.getElementById("D").innerHTML="帅锶祝这个逼生日快乐<br><img width=20% height=20% id='pic' src='1.jpg' onclick='chpic(this)'><br>（点击图片查看p前照）"
         document.getElementById("countdown").innerHTML=""
         point = 0
     }
