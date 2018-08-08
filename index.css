@@ -3,10 +3,10 @@
     text-align: center; /*让div内部文字居中*/
     border-radius: 20px;
     width: auto;
-    height: 460px;
+    height: auto;
     margin: auto;
     position: absolute;
-    top: 5%;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
