@@ -12,7 +12,7 @@
     bottom: 0;
 }
 body{ background:#333;
-      zoom：2}
+      transform: scale(1.2);}
 .breathe-btn{ position:relative; width:100px; height:auto; margin:40px auto; line-height:40px; border:1px solid #2b92d4; border-radius:5px; color:#fff; font-size:20px; text-align:center; cursor:pointer; box-shadow:0 1px 2px rgba(0,0,0,.3); overflow:hidden;
     background-image: -webkit-gradient(linear, left top, left bottom, from(#6cc3fe), to(#21a1d0));
     background-image: -moz-linear-gradient(#6cc3fe,#21a1d0);
